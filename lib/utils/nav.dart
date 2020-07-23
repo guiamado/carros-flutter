@@ -16,6 +16,6 @@ Future push(context, Widget page, {bool replace = false}) {
   ));
 }
 
-pop(context, text) {
-  Navigator.pop(context, text);
+pop(context) {
+  Navigator.pop(context);
 }
