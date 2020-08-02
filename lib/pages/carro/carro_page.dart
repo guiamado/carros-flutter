@@ -4,12 +4,14 @@ import 'package:carros/pages/carro/carro.dart';
 import 'package:carros/pages/carro/carro_form_page.dart';
 import 'package:carros/pages/carro/carros_api.dart';
 import 'package:carros/pages/favoritos/favorito_service.dart';
+import 'package:carros/pages/video_page.dart';
 import 'package:carros/utils/alert.dart';
 import 'package:carros/utils/event_bus.dart';
 import 'package:carros/utils/nav.dart';
 import 'package:carros/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'loripsum_api.dart';
 
@@ -51,7 +53,7 @@ class _CarroPageState extends State<CarroPage> {
             ),
             IconButton(
               icon: Icon(Icons.videocam),
-              onPressed: _onClickVideo,
+              onPressed: () => _onClickVideo(context),
             ),
             PopupMenuButton<String>(
               onSelected: _onClickPopupMenu,
@@ -137,7 +139,14 @@ class _CarroPageState extends State<CarroPage> {
 
   void _onClickMapa() {}
 
-  void _onClickVideo() {}
+  void _onClickVideo(context) {
+    if (carro.urlVideo != null && carro.urlVideo.isNotEmpty) {
+      // launch(carro.urlVideo);
+      push(context, VideoPage(carro));
+    } else {
+      alert(context, 'Este carro não possui nenhum vídeo');
+    }
+  }
 
   _onClickPopupMenu(String value) {
     switch (value) {
