@@ -9,6 +9,7 @@ import 'package:carros/utils/event_bus.dart';
 import 'package:carros/utils/nav.dart';
 import 'package:carros/widgets/text.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 import 'loripsum_api.dart';
 
@@ -151,7 +152,7 @@ class _CarroPageState extends State<CarroPage> {
         deletar();
         break;
       case 'Share':
-        print('Share!!!');
+        _onClickShare();
         break;
       default:
     }
@@ -164,7 +165,9 @@ class _CarroPageState extends State<CarroPage> {
     });
   }
 
-  void _onClickShare() {}
+  void _onClickShare() {
+    Share.share(widget.carro.urlFoto);
+  }
 
   _bloco2() {
     return Column(
