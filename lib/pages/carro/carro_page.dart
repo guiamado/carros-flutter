@@ -145,9 +145,6 @@ class _CarroPageState extends State<CarroPage> {
       push(context, VideoPage(carro));
     } else {
       alert(context, 'Este carro não possui nenhum vídeo');
-      alert(context, 'Este carro não possui nenhum vídeo');
-      alert(context, 'Este carro não possui nenhum vídeo');
-      alert(context, 'Este carro não possui nenhum vídeo');
     }
   }
 
